@@ -37,21 +37,71 @@
             margin-top: 20px;
             z-index: 0;
         }
+
     </style>
 </head>
 <body>
-    <img src="foguete.gif" width="80px" class="foguete" id="foguete">
+    <img src="foguete.gif" onclick="Comecar();" width="80px" class="foguete" id="foguete">
+<div class="audio">
+    <audio id="audio1" controls="" autoplay="">
+        <source src="contagem_regressiva.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="audio2" controls="" autoplay="">
+        <source src="lancamento_foguete.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="audio3" controls="" autoplay="">
+        <source src="problem.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="audio4" controls="" autoplay="">
+        <source src="carina-stars-Aug-3.wav" type="audio/mp3">
+    </audio>
+
+</div>
     <img src="lua.webp" width="100px" class="lua">
 </body>
 <script src="jquery-3.7.0.min.js"></script>
 
 <script>
 
+function Comecar()
+     {
+
+      temporizador = setTimeout(subir, 20000)
+
+      contagem = document.getElementById('audio1');
+      contagem.play();
+
+      temporizador2 = setTimeout(tocar2, 20000)
+      temporizador3 = setTimeout(tocar3, 38000)
+      temporizador4 = setTimeout(tocar4, 55000)
+     }
+
+     function tocar2()
+     {
+        contagem = document.getElementById('audio2');
+      contagem.play();
+     }
+
+     function tocar3()
+     {
+        contagem = document.getElementById('audio3');
+      contagem.play();
+     }
+
+     function tocar4()
+     {
+        contagem = document.getElementById('audio4');
+      contagem.play();
+     }
+     
+
 // vamos pegar o tempo inicial:
     d = new Date();
     tempo_inicial = d.getTime();
 
-    temporizador = setTimeout(subir,1000)
 
     x = 100
 
@@ -60,12 +110,13 @@
     ESQUERDA = ""
 
     TOPO = ""
+    
 
     function subir()
     {
         ESQUERDA = x + "px"
         TOPO = y + "px"
-        $("#foguete").animate({left:ESQUERDA, top:TOPO},5000)
+        $("#foguete").animate({left:ESQUERDA, top:TOPO},18000)
 
 
         temporizador = null //cancela a animação subir 
@@ -111,6 +162,8 @@
             Descer()
         }
         }
+
+        
     }   
 </script>
 </html>
